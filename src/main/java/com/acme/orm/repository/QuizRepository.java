@@ -13,7 +13,6 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
     @Query("""
         select distinct q from Quiz q
         left join fetch q.questions qu
-        left join fetch qu.options
         where q.id = :id
         """)
     Optional<Quiz> findDetailedById(@Param("id") Long id);

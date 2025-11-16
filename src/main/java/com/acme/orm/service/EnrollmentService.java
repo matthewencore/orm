@@ -47,11 +47,22 @@ public class EnrollmentService {
 
     @Transactional(readOnly = true)
     public List<User> getStudentsForCourse(Long courseId) {
-        return enrollmentRepository
+        List<User> students = enrollmentRepository
             .findByCourseId(courseId)
             .stream()
             .map(Enrollment::getStudent)
             .collect(Collectors.toList());
+
+        // Инициализируем необходимые поля внутри транзакции, чтобы избежать LazyInitializationException
+        students.forEach(student -> {
+            if (student != null) {
+                student.getName();
+                student.getEmail();
+                student.getRole();
+            }
+        });
+
+        return students;
     }
 
     @Transactional(readOnly = true)
