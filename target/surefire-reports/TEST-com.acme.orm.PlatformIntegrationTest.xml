@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.acme.orm.PlatformIntegrationTest" time="0.004" tests="6" errors="0" skipped="6" failures="0">
+  <properties/>
+  <testcase name="lazyLoadingRequiresFetchJoin" classname="com.acme.orm.PlatformIntegrationTest" time="0.0">
+    <skipped message="disabledWithoutDocker is true and Docker is not available"/>
+    <system-out><![CDATA[00:07:32.381 [main] INFO org.testcontainers.dockerclient.DockerMachineClientProviderStrategy -- docker-machine executable was not found on PATH ([d:\cursor\resources\app\bin, C:\Users\Пользователь\AppData\Local\Yandex\YandexBrowser\Application, C:\Program Files (x86)\VMware\VMware Workstation\bin\, C:\Program Files\Common Files\Oracle\Java\javapath, C:\Program Files (x86)\Common Files\Oracle\Java\java8path, C:\Program Files (x86)\Common Files\Oracle\Java\javapath, C:\Windows\system32, C:\Windows, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common, C:\Program Files\WireGuard\, C:\Program Files\Git\cmd, C:\Program Files\Cloudflare\Cloudflare WARP\, C:\Program Files\Docker\Docker\resources\bin, C:\Program Files\PuTTY\, C:\Program Files\nodejs\, C:\Users\Пользователь\AppData\Local\Programs\Python\Python312\Scripts\, C:\Users\Пользователь\AppData\Local\Programs\Python\Python312\, C:\Users\Пользователь\AppData\Local\Microsof, C:\Program Files\1C\1CE\components\1c-enterprise-ring-0.19.5+12-x86_64, C:\Program Files\NVIDIA Corporation\NVIDIA App\NvDLISR, C:\WINDOWS\system32, C:\WINDOWS, C:\WINDOWS\System32\Wbem, C:\WINDOWS\System32\WindowsPowerShell\v1.0\, C:\WINDOWS\System32\OpenSSH\, C:\Program Files\dotnet\, C:\Program Files\RuDesktop\, C:\Users\Пользователь\AppData\Local\Programs\Python\Python312\Scripts\, C:\Users\Пользователь\AppData\Local\Programs\Python\Python312\, C:\Users\Пользователь\AppData\Local\Microsoft\WindowsApps, D:\Program\Microsoft VS Code\bin, C:\Program Files\JetBrains\IntelliJ IDEA 2024.2.1\bin, C:\Users\Пользователь\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe, D:\DataGrip 2024.3.5\bin, C:\Users\Пользователь\AppData\Local\JetBrains\Toolbox\scripts, C:\Users\Пользователь\AppData\Roaming\npm, D:\cursor\resources\app\bin, C:\Users\Пользователь\AppData\Local\Microsoft\WindowsApps])
+00:07:32.382 [main] ERROR org.testcontainers.dockerclient.DockerClientProviderStrategy -- Could not find a valid Docker environment. Please check configuration. Attempted configurations were:
+As no valid configuration was found, execution cannot continue.
+See https://java.testcontainers.org/on_failure.html for more details.
+]]></system-out>
+  </testcase>
+  <testcase name="enrollmentLifecycleWorks" classname="com.acme.orm.PlatformIntegrationTest" time="0.0">
+    <skipped message="disabledWithoutDocker is true and Docker is not available"/>
+  </testcase>
+  <testcase name="restEndpointsLifecycle" classname="com.acme.orm.PlatformIntegrationTest" time="0.0">
+    <skipped message="disabledWithoutDocker is true and Docker is not available"/>
+  </testcase>
+  <testcase name="quizFlowPersistsResults" classname="com.acme.orm.PlatformIntegrationTest" time="0.0">
+    <skipped message="disabledWithoutDocker is true and Docker is not available"/>
+  </testcase>
+  <testcase name="submissionCrudFlow" classname="com.acme.orm.PlatformIntegrationTest" time="0.0">
+    <skipped message="disabledWithoutDocker is true and Docker is not available"/>
+  </testcase>
+  <testcase name="shouldCreateCourseWithModulesAndLessons" classname="com.acme.orm.PlatformIntegrationTest" time="0.0">
+    <skipped message="disabledWithoutDocker is true and Docker is not available"/>
+  </testcase>
+</testsuite>

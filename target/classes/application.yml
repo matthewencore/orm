@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: ${APP_DB_URL:jdbc:postgresql://localhost:5432/orm_platform}
+    username: ${APP_DB_USERNAME:postgres}
+    password: ${APP_DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 32
+    open-in-view: false
+  sql:
+    init:
+      mode: never
+logging:
+  level:
+    org.hibernate.SQL: info
+
