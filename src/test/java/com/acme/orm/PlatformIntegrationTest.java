@@ -18,6 +18,7 @@ import com.acme.orm.domain.Submission;
 import com.acme.orm.domain.Tag;
 import com.acme.orm.domain.User;
 import com.acme.orm.domain.enums.UserRole;
+import com.acme.orm.repository.AnswerOptionRepository;
 import com.acme.orm.repository.CategoryRepository;
 import com.acme.orm.repository.CourseRepository;
 import com.acme.orm.repository.EnrollmentRepository;
@@ -55,6 +56,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -88,6 +90,8 @@ class PlatformIntegrationTest {
     private CategoryRepository categoryRepository;
     @Autowired
     private TagRepository tagRepository;
+    @Autowired
+    private AnswerOptionRepository answerOptionRepository;
     @Autowired
     private MockMvc mockMvc;
     @Autowired
@@ -159,19 +163,18 @@ class PlatformIntegrationTest {
     }
 
     @Test
+    @Transactional
     void quizFlowPersistsResults() {
         Course course = seedCourseGraph();
         User student = userRepository.save(sampleUser(UserRole.STUDENT));
 
         Quiz quiz = quizRepository
-            .findDetailedById(quizRepository.findByModuleId(course.getModules().get(0).getId()).orElseThrow().getId())
+            .findByModuleId(course.getModules().get(0).getId())
             .orElseThrow();
 
-        var question = quiz.getQuestions().get(0);
-        Long correctOptionId = question.getOptions()
+        AnswerOption correctOption = answerOptionRepository.findByQuestionQuizId(quiz.getId())
             .stream()
             .filter(AnswerOption::isCorrect)
-            .map(AnswerOption::getId)
             .findFirst()
             .orElseThrow();
 
@@ -179,7 +182,10 @@ class PlatformIntegrationTest {
             quiz.getId(),
             new QuizAttemptRequest(
                 student.getId(),
-                List.of(new QuizAttemptRequest.AnswerSelection(question.getId(), List.of(correctOptionId)))
+                List.of(new QuizAttemptRequest.AnswerSelection(
+                    correctOption.getQuestion().getId(),
+                    List.of(correctOption.getId())
+                ))
             )
         );
 
