@@ -6,7 +6,8 @@ spring:
       hibernate:
         format_sql: true
   datasource:
-    # Используем Testcontainers через специальный JDBC-URL
+    # Используем Testcontainers через специальный JDBC-URL и драйвер ContainerDatabaseDriver
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
     url: jdbc:tc:postgresql:15-alpine:///orm_platform_test
     username: postgres
     password: postgres
